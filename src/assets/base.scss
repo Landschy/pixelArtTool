@@ -1,0 +1,7 @@
+@use "configs/colors";
+@use "configs/functions";
+@use "configs/mixins";
+
+* {
+  user-select: none;
+}
