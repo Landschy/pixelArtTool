@@ -5,8 +5,8 @@ import App from "./App.vue";
 import router from "./router";
 
 import "./assets/main.css";
-
-const app = createApp(App);
+import vuetify from "./plugins/vuetify";
+const app = createApp(App).use(vuetify);
 
 app.use(createPinia());
 app.use(router);

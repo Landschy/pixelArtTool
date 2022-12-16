@@ -10,11 +10,7 @@ const { msg: message } = toRefs(props);
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ message }}</h1>
-    <h3>
-      You’ve successfully created a project with TEST {{ message }}
-      <a href="https://vuejs.org/" target="_blank">Vue 3</a>. What's next?
-    </h3>
+    <h1 class="rounded-md">{{ message }}</h1>
   </div>
 </template>
 

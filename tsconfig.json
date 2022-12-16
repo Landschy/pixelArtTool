@@ -1,5 +1,8 @@
 {
   "files": [],
+  "compilerOptions": {
+    "types": ["vuetify"]
+  },
   "references": [
     {
       "path": "./tsconfig.config.json"
