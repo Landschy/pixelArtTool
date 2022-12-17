@@ -8,7 +8,7 @@ export const useDrawingStore = defineStore("Drawing", () => {
     color: 0,
     toAdd: "#000000",
   });
-  const gridSize = ref(0);
+  const gridSize = ref(8);
   const iconType = ref({
     brush: "mdi-brush",
     fill: "mdi-format-color-fill",
