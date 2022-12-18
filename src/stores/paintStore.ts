@@ -4,7 +4,12 @@ import { defineStore } from "pinia";
 import { resetGrid } from "./methods/paintMethods";
 import { canvasRef, renderToImage } from "./methods/renderToImage";
 import { currentAlert, throwAlert } from "./methods/alertMethods";
-
+import {
+  squareToPaint,
+  highlightSquare,
+  paintSquare,
+  resetSquare,
+} from "./methods/canvasMethods";
 export const usePaintStore = defineStore("Drawing", () => {
   const gridSize = ref(8);
   const currentBrush = ref({
@@ -60,5 +65,9 @@ export const usePaintStore = defineStore("Drawing", () => {
     canvasRef,
     renderToImage,
     resetGrid,
+    squareToPaint,
+    highlightSquare,
+    paintSquare,
+    resetSquare,
   };
 });

@@ -1,40 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Ref } from "vue";
 import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
-import type { Color } from "csstype";
-const squareToPaint: Ref<HTMLElement | null> = ref(null);
-const highlightSquare = (id: number) => {
-  //HighLight opacity 80
-  const elId = `gridElement${id}`;
-  const el = document.getElementById(elId);
-  if (el) {
-    if (!el.classList.contains("painted")) {
-      squareToPaint.value = el;
-      squareToPaint.value.style.backgroundColor = "rgba(230,230,230,0.5)";
-    }
-  }
-};
-const paintSquare = (id: number, color: Color) => {
-  //Actually paint 100
-  const elId = `gridElement${id}`;
-  const el = document.getElementById(elId);
-  if (el) {
-    el.classList.add("painted");
-    el.style.backgroundColor = color;
-  }
-};
-const resetSquare = (id: number) => {
-  if (squareToPaint.value) {
-    if (!squareToPaint.value.classList.contains("painted")) {
-      squareToPaint.value.style.backgroundColor = "transparent";
-    }
-  }
-};
+
 const paintStore = usePaintStore();
 const { gridSize, currentToPaint } = storeToRefs(paintStore);
-const { resetGrid } = paintStore;
+const { resetGrid, highlightSquare, paintSquare, resetSquare } = paintStore;
 </script>
 <template>
   <v-btn @click="resetGrid"> RESET</v-btn>
@@ -45,7 +15,7 @@ const { resetGrid } = paintStore;
       :key="i"
       :id="`gridElement${i}`"
       @mouseover="() => highlightSquare(i)"
-      @mouseleave="() => resetSquare(i)"
+      @mouseleave="resetSquare"
       @click="() => paintSquare(i, currentToPaint)"
     ></div>
   </div>
