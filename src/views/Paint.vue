@@ -25,8 +25,12 @@ onMounted(() => {
       <div ref="toScreenShot" class="w-full h-full">
         <GridDisplay />
       </div>
+    </div>
+    <div class="text-center my-5">
       You can even
-      <v-btn @click="handleOnButtonDownload"> download </v-btn>
+      <v-btn @click="handleOnButtonDownload" variant="outlined">
+        download
+      </v-btn>
       it!
     </div>
   </main>
