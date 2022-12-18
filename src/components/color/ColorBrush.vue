@@ -9,6 +9,5 @@ const { iconType } = storeToRefs(paintStore);
 <template>
   <div>
     <ToolSelect :icon="iconType.brush" val="brush" />
-    <ToolSelect disabled :icon="iconType.fill" val="fill" />
   </div>
 </template>

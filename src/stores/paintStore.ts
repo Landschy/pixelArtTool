@@ -15,7 +15,7 @@ export const usePaintStore = defineStore("Drawing", () => {
   const currentBrush = ref({
     type: "brush",
     color: 0,
-    toAdd: "#000000",
+    toAdd: "#486a94",
   });
   const isMenuVisible = ref(false);
   const iconType = ref({
