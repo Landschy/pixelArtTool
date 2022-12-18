@@ -23,6 +23,10 @@ import {
   VExpansionPanel,
   VAvatar,
   VSlider,
+  VSelect,
+  VTextField,
+  VForm,
+  VLabel,
 } from "vuetify/components";
 
 const vuetify = createVuetify({
@@ -46,6 +50,10 @@ const vuetify = createVuetify({
     VExpansionPanel,
     VAvatar,
     VSlider,
+    VSelect,
+    VTextField,
+    VForm,
+    VLabel,
   },
   directives,
   icons: {

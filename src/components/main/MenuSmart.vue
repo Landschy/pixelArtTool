@@ -6,10 +6,11 @@ import ColorBrush from "../color/ColorBrush.vue";
 import ColorLibrary from "../color/ColorLibrary.vue";
 import ColorLibrarySwatch from "../color/ColorLibrarySwatch.vue";
 import ColorPicker from "../color/ColorPicker.vue";
+import DownloadForm from "../download/DownloadForm.vue";
 const icon = ref(
   "https://www.dlf.pt/dfpng/middlepng/597-5970982_pokeball-pixel-png-transparent-png.png"
 );
-const currentDrawer = ref([0, 1, 2, 3]);
+const currentDrawer = ref([0, 1, 2]);
 </script>
 <template>
   <v-navigation-drawer location="right" width="280" class="py-2">
@@ -23,24 +24,18 @@ const currentDrawer = ref([0, 1, 2, 3]);
     <v-expansion-panels multiple v-model="currentDrawer" accordion>
       <v-expansion-panel hide-actions elevation="0">
         <template #title>
-          <div>Config</div>
-        </template>
-        <template #text>
-          <GridSize />
-        </template>
-      </v-expansion-panel>
-      <v-expansion-panel hide-actions elevation="0">
-        <template #title>
           <div>Tools</div>
         </template>
         <template #text>
-          <ColorBrush />
-        </template>
-      </v-expansion-panel>
-      <v-expansion-panel hide-actions elevation="0">
-        <template #title> Quick Access </template>
-        <template #text>
-          <ColorLibrary />
+          <h3 class="mb-1 text-lg">Grid Size</h3>
+          <GridSize />
+          <v-divider class="mb-5" />
+          <h3 class="mb-2 text-lg">Quick Access</h3>
+          <ColorLibrary class="my-2" />
+          <v-divider class="mb-5" />
+          <h3 class="mb-2 text-lg">Brush</h3>
+          <ColorBrush class="my-2" />
+          <v-divider class="mb-2" />
         </template>
       </v-expansion-panel>
       <v-expansion-panel hide-actions elevation="0">
@@ -49,6 +44,12 @@ const currentDrawer = ref([0, 1, 2, 3]);
           <ColorLibrarySwatch />
           <ColorActivator class="mt-5 mb-1" />
           <ColorPicker />
+        </template>
+      </v-expansion-panel>
+      <v-expansion-panel hide-actions elevation="0">
+        <template #title> DOWNLOAD </template>
+        <template #text>
+          <DownloadForm />
         </template>
       </v-expansion-panel>
     </v-expansion-panels>

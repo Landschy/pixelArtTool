@@ -1,19 +1,21 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
+import { resetGrid } from "./methods/paintMethods";
+import { canvasRef, renderToImage } from "./methods/renderToImage";
+import { currentAlert, throwAlert } from "./methods/alertMethods";
 
 export const useDrawingStore = defineStore("Drawing", () => {
+  const gridSize = ref(8);
   const currentBrush = ref({
-    type: "",
+    type: "brush",
     color: 0,
     toAdd: "#000000",
   });
-  const gridSize = ref(8);
   const iconType = ref({
     brush: "mdi-brush",
     fill: "mdi-format-color-fill",
   });
-  const isToAdd = ref(false);
   const colorsLibrary: Ref<string[]> = ref([
     "#464646",
     "#68e895",
@@ -29,13 +31,15 @@ export const useDrawingStore = defineStore("Drawing", () => {
   const changeColor = (c: number) => {
     currentBrush.value.color = c;
   };
+  const isToAdd = ref(false);
   const addtoLibrary = (c: string) => {
     const present = colorsLibrary.value.find((x) => {
       return x === c;
     });
     if (!present) {
       colorsLibrary.value.push(c);
-      currentBrush.value.color = colorsLibrary.value.length - 1;
+    } else {
+      throwAlert("duplicated");
     }
   };
   const currentToPaint = computed(() => {
@@ -44,12 +48,17 @@ export const useDrawingStore = defineStore("Drawing", () => {
 
   return {
     currentBrush,
-    colorsLibrary,
-    addtoLibrary,
-    changeColor,
-    currentToPaint,
-    isToAdd,
     iconType,
+    isToAdd,
+    addtoLibrary,
+    colorsLibrary,
+    currentToPaint,
+    changeColor,
+    currentAlert,
+    throwAlert,
     gridSize,
+    canvasRef,
+    renderToImage,
+    resetGrid,
   };
 });

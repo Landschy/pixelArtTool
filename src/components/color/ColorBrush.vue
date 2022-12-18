@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useDrawingStore } from "@/stores/counter";
+import { useDrawingStore } from "@/stores/paintStore";
 import ToolSelect from "../tools/ToolSelect.vue";
 
 const drawingStore = useDrawingStore();

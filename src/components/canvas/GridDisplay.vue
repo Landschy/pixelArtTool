@@ -1,25 +1,52 @@
 <script setup lang="ts">
-import { useDrawingStore } from "../../stores/counter";
+import { ref } from "vue";
+import type { Ref } from "vue";
+import { useDrawingStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
-const highlightSquare = (e: MouseEvent) => {
+import type { Color } from "csstype";
+const squareToPaint: Ref<HTMLElement | null> = ref(null);
+const highlightSquare = (id: number) => {
   //HighLight opacity 80
-  console.log("HIGHLIGH", e.target);
+  const elId = `gridElement${id}`;
+  const el = document.getElementById(elId);
+  if (el) {
+    if (!el.classList.contains("painted")) {
+      squareToPaint.value = el;
+      squareToPaint.value.style.backgroundColor = "rgba(230,230,230,0.5)";
+    }
+  }
 };
-const paintSquare = (e: MouseEvent) => {
+const paintSquare = (id: number, color: Color) => {
   //Actually paint 100
-  console.log("PAINT", e.target);
+  const elId = `gridElement${id}`;
+  const el = document.getElementById(elId);
+  if (el) {
+    el.classList.add("painted");
+    el.style.backgroundColor = color;
+  }
+};
+const resetSquare = (id: number) => {
+  if (squareToPaint.value) {
+    if (!squareToPaint.value.classList.contains("painted")) {
+      squareToPaint.value.style.backgroundColor = "transparent";
+    }
+  }
 };
 const drawingStore = useDrawingStore();
-const { gridSize } = storeToRefs(drawingStore);
+const { gridSize, currentToPaint } = storeToRefs(drawingStore);
+const { resetGrid } = drawingStore;
 </script>
 <template>
-  <div class="gridMain mx-auto border-2 border-black">
+  <v-btn @click="resetGrid"> RESET</v-btn>
+  <div class="gridMain w-full h-full mx-auto border-2 border-black">
     <div
       class="border-[1px]"
       v-for="i in gridSize * gridSize"
       :key="i"
-      @mouseover="highlightSquare"
-      @click="paintSquare"
+      :id="`gridElement${i}`"
+      @mouseover="() => highlightSquare(i)"
+      @mouseleave="() => resetSquare(i)"
+      @click="() => paintSquare(i, currentToPaint)"
     ></div>
   </div>
 </template>
@@ -28,8 +55,6 @@ const { gridSize } = storeToRefs(drawingStore);
   display: grid;
   max-height: 90vw;
   max-width: 90vw;
-  height: 50rem;
-  width: 50rem;
   grid-template-columns: repeat(v-bind(gridSize), 1fr);
   grid-template-rows: repeat(v-bind(gridSize), 1fr);
 }

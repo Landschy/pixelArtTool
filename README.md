@@ -1,68 +1,44 @@
-# pixelart
+# Task Result
 
-This template should help get you started developing with Vue 3 in Vite.
+## Used technologies / Frameworks
 
-## Recommended IDE Setup
+I use the following technologies / frameworks in my project:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- JavaScript / jQuery
+- PHP / Symfony
+- ...
 
-## Type Support for `.vue` Imports in TS
+I chose jQuery because ...
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Used 3rd Party Libraries
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+I use the following 3rd party libraries in my project: (if none, remove the table and explain why)
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+| Name                                   | Reason                                            |
+| -------------------------------------- | ------------------------------------------------- |
+| [moment.js](https://momentjs.com/)     | For calculating dates and converting formats.     |
+| [Bootstrap](https://getbootstrap.com/) | Simple RWD framework for designing the front end. |
 
-## Customize configuration
+## Installation / Run
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Describe how we can check your project locally.
 
-## Project Setup
+For example:
 
-```sh
-npm install
+---
+
+The following components must be installed locally:
+
+- [nodejs](https://nodejs.org/en/) v13.2.0
+- [.NET Core](https://dotnet.microsoft.com/download) v3.1
+
+To run the project locally, enter the following in the command line / bash:
+
+```console
+$ git clone <linktorepository>
+$ cd <repositoryname>
+$ npm install
+$ npm run start
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+---

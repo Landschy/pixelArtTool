@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useDrawingStore } from "../../stores/counter";
+import { useDrawingStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 
 const drawingStore = useDrawingStore();
