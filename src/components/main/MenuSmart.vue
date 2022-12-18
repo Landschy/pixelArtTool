@@ -10,10 +10,8 @@ import ColorLibrary from "../color/ColorLibrary.vue";
 import ColorLibrarySwatch from "../color/ColorLibrarySwatch.vue";
 import ColorPicker from "../color/ColorPicker.vue";
 import DownloadForm from "../download/DownloadForm.vue";
+import TitleSoftware from "./TitleSoftware.vue";
 
-const icon = ref(
-  "https://www.dlf.pt/dfpng/middlepng/597-5970982_pokeball-pixel-png-transparent-png.png"
-);
 const currentDrawer = ref([0, 1, 2]);
 const paintStore = usePaintStore();
 const { isMenuVisible } = storeToRefs(paintStore);
@@ -37,8 +35,7 @@ const { isMenuVisible } = storeToRefs(paintStore);
         </v-btn>
       </template>
       <template #append>
-        Pixel Art Tool
-        <v-avatar :image="icon"></v-avatar>
+        <TitleSoftware />
       </template>
     </v-list-item>
     <v-divider></v-divider>
