@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const icon = ref(
-  "https://www.dlf.pt/dfpng/middlepng/597-5970982_pokeball-pixel-png-transparent-png.png"
-);
+const icon = ref("/bitjorge.png");
 </script>
 <template>
   <div>

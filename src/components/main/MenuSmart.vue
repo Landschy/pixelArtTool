@@ -13,9 +13,8 @@ import ColorPicker from "../color/ColorPicker.vue";
 import DownloadForm from "../download/DownloadForm.vue";
 import TitleSoftware from "./TitleSoftware.vue";
 
-const currentDrawer = ref([1]);
 const paintStore = usePaintStore();
-const { isMenuVisible } = storeToRefs(paintStore);
+const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
 </script>
 <template>
   <div>

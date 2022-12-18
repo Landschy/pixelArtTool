@@ -7,7 +7,11 @@ import CurrentConfig from "@/components/color/CurrentConfig.vue";
 
 const paintStore = usePaintStore();
 const toScreenShot: any = ref(null);
-const { canvasRef } = storeToRefs(paintStore);
+const { canvasRef, currentDrawer, isMenuVisible } = storeToRefs(paintStore);
+const handleOnButtonDownload = () => {
+  currentDrawer.value = [2];
+  isMenuVisible.value = true;
+};
 onMounted(() => {
   canvasRef.value = toScreenShot.value;
 });
@@ -21,6 +25,9 @@ onMounted(() => {
       <div ref="toScreenShot" class="w-full h-full">
         <GridDisplay />
       </div>
+      You can even
+      <v-btn @click="handleOnButtonDownload"> download </v-btn>
+      it!
     </div>
   </main>
 </template>

@@ -19,6 +19,7 @@ const renderToImage = paintStore.renderToImage;
 <template>
   <v-form v-model="isAbleTodownload" lazy-validation>
     <v-text-field
+      class="mt-5"
       :rules="[rules.required]"
       label="File Name"
       variant="outlined"
@@ -26,6 +27,7 @@ const renderToImage = paintStore.renderToImage;
       v-model="imageDownload.name"
     ></v-text-field>
     <v-select
+      class="mt-5"
       variant="outlined"
       label="File Format"
       :item-value="imageDownload.format"
@@ -34,7 +36,7 @@ const renderToImage = paintStore.renderToImage;
     ></v-select>
     <v-btn
       :disabled="!isAbleTodownload"
-      color="warning"
+      :color="isAbleTodownload ? 'warning' : ''"
       :append-icon="'mdi-heart'"
       @click="() => renderToImage(imageDownload.name, imageDownload.format as downloadFormat['value'])"
     >

@@ -57,6 +57,7 @@ export const usePaintStore = defineStore("Drawing", () => {
   const currentToPaint = computed(() => {
     return colorsLibrary.value[currentBrush.value.color];
   });
+  const currentDrawer = ref([1]);
 
   return {
     currentBrush,
@@ -77,5 +78,6 @@ export const usePaintStore = defineStore("Drawing", () => {
     paintSquare,
     resetSquare,
     isMenuVisible,
+    currentDrawer,
   };
 });
