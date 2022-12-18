@@ -6,7 +6,12 @@ const props = defineProps<{
 }>();
 </script>
 <template>
-  <v-card flat :color="props.color" class="mx-2 w-[25px] h-[25px]">
+  <v-card
+    flat
+    :color="props.color"
+    class="mx-2 w-[25px] h-[25px]"
+    :style="'border: 1px solid grey'"
+  >
     <v-scale-transition>
       <div
         v-if="props.currentBrushColor == props.idx"

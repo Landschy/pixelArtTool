@@ -8,7 +8,7 @@ const { highlightSquare, paintSquare, resetSquare } = paintStore;
 </script>
 <template>
   <div
-    class="gridMain w-full h-full mx-auto my-auto border-2 border-black hover:cursor-pointer"
+    class="gridMain w-full h-full mx-auto my-auto border-2 border-black hover:cursor-pointer bg-white"
   >
     <div
       class="border-[1px]"

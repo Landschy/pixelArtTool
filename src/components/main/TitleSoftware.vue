@@ -7,7 +7,7 @@ const icon = ref(
 </script>
 <template>
   <div>
-    Pixel Art Jorge F.
+    Pixel Art
     <v-avatar :image="icon"></v-avatar>
   </div>
 </template>
