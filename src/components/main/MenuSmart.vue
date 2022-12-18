@@ -13,7 +13,7 @@ import ColorPicker from "../color/ColorPicker.vue";
 import DownloadForm from "../download/DownloadForm.vue";
 import TitleSoftware from "./TitleSoftware.vue";
 
-const currentDrawer = ref([0, 1, 2]);
+const currentDrawer = ref([1]);
 const paintStore = usePaintStore();
 const { isMenuVisible } = storeToRefs(paintStore);
 </script>
@@ -22,28 +22,31 @@ const { isMenuVisible } = storeToRefs(paintStore);
     <v-navigation-drawer
       v-model="isMenuVisible"
       location="right"
-      width="300"
-      class="py-2 z-40"
-      temporary
+      width="400"
+      class="py-2 z-40 h-screen"
+      permanent
+      touchless
     >
-      <v-list-item class="mb-5">
-        <template #prepend>
-          <v-btn
-            @click="isMenuVisible = false"
-            variant="text"
-            class="w-full h-full"
-            size="40"
-          >
-            <v-icon size="30" icon="mdi-close"></v-icon>
-          </v-btn>
-        </template>
-        <template #append>
-          <TitleSoftware />
-        </template>
+      <div
+        class="absolute grid grid-cols-2 z-[1050] bg-white h-[3em] w-full text-center"
+      >
+        <TitleSoftware />
+        <v-btn
+          @click="isMenuVisible = false"
+          variant="text"
+          class="w-full h-full col-start-3 col-end-3 mr-6"
+          size="40"
+        >
+          <v-icon size="30" icon="mdi-close"></v-icon>
+        </v-btn>
+      </div>
+      <v-list-item class="mb-5 absolute top-0">
+        <template #append> </template>
+        <template #prepend> </template>
       </v-list-item>
       <v-divider></v-divider>
-      <v-expansion-panels multiple v-model="currentDrawer" accordion>
-        <v-expansion-panel hide-actions elevation="0">
+      <v-expansion-panels multiple v-model="currentDrawer" variant="accordion">
+        <v-expansion-panel elevation="0">
           <template #title>
             <div>Tools</div>
           </template>
@@ -60,7 +63,7 @@ const { isMenuVisible } = storeToRefs(paintStore);
             <v-divider class="mb-2" />
           </template>
         </v-expansion-panel>
-        <v-expansion-panel hide-actions elevation="0">
+        <v-expansion-panel elevation="0">
           <template #title> Library </template>
           <template #text>
             <ColorLibrarySwatch />
@@ -68,8 +71,8 @@ const { isMenuVisible } = storeToRefs(paintStore);
             <ColorPicker />
           </template>
         </v-expansion-panel>
-        <v-expansion-panel hide-actions elevation="0">
-          <template #title> DOWNLOAD </template>
+        <v-expansion-panel elevation="0">
+          <template #title> Download </template>
           <template #text>
             <DownloadForm />
           </template>
