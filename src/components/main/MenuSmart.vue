@@ -26,6 +26,16 @@ const { isMenuVisible } = storeToRefs(paintStore);
     class="py-2"
   >
     <v-list-item class="mb-5">
+      <template #prepend>
+        <v-btn
+          @click="isMenuVisible = false"
+          variant="text"
+          class="w-full h-full"
+          size="40"
+        >
+          <v-icon size="30" icon="mdi-close"></v-icon>
+        </v-btn>
+      </template>
       <template #append>
         Pixel Art Tool
         <v-avatar :image="icon"></v-avatar>
