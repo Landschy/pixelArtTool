@@ -14,7 +14,7 @@ const handeOnButtonSettings = () => {
 </script>
 <template>
   <div
-    class="sm:absolute top-10 w-full sm:w-[20rem] left-10 mt-8 top-0 pa-2 grid grid-cols-1 pa-5"
+    class="lg:absolute top-10 w-full sm:w-[20rem] left-10 mt-8 top-0 pa-2 grid grid-cols-1 pa-5"
   >
     <div
       class="mb-1 pa-0 rounded-md border-2 drop-shadow-lg opacity-100 text-black pa-5"
