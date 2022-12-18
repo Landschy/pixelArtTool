@@ -20,8 +20,9 @@ const { isMenuVisible } = storeToRefs(paintStore);
   <v-navigation-drawer
     v-model="isMenuVisible"
     location="right"
-    width="280"
+    width="300"
     class="py-2"
+    temporary
   >
     <v-list-item class="mb-5">
       <template #prepend>
