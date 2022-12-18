@@ -19,6 +19,7 @@ const { colorsLibrary, currentBrush } = storeToRefs(paintStore);
         v-model="currentBrush.color"
         selected-class="bg-success"
         show-arrows
+        mandatory
         center-active
       >
         <v-slide-group-item
