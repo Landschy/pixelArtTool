@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useDrawingStore } from "../../stores/paintStore";
+import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 
-const drawingStore = useDrawingStore();
-const { currentBrush, isToAdd } = storeToRefs(drawingStore);
+const paintStore = usePaintStore();
+const { currentBrush, isToAdd } = storeToRefs(paintStore);
 </script>
 <template>
   <div v-if="isToAdd" class="text-center align-middle justify-center w-full">

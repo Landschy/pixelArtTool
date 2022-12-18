@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { useDrawingStore } from "@/stores/paintStore";
+import { usePaintStore } from "@/stores/paintStore";
 
 interface downloadFormat {
   value: "jpg" | "png" | "svg";
 }
 const imagetypes = ["jpg", "png", "svg"];
 
-const drawingStore = useDrawingStore();
-const renderToImage = drawingStore.renderToImage;
+const paintStore = usePaintStore();
+const renderToImage = paintStore.renderToImage;
 
 const imageDownload = ref({ name: "", format: "jpg" });
 const isAbleTodownload = ref(false);

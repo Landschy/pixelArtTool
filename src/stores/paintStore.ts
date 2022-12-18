@@ -1,11 +1,11 @@
+import type { Ref } from "vue";
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-import type { Ref } from "vue";
 import { resetGrid } from "./methods/paintMethods";
 import { canvasRef, renderToImage } from "./methods/renderToImage";
 import { currentAlert, throwAlert } from "./methods/alertMethods";
 
-export const useDrawingStore = defineStore("Drawing", () => {
+export const usePaintStore = defineStore("Drawing", () => {
   const gridSize = ref(8);
   const currentBrush = ref({
     type: "brush",

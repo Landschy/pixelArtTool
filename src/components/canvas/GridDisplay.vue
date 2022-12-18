@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { Ref } from "vue";
-import { useDrawingStore } from "../../stores/paintStore";
+import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 import type { Color } from "csstype";
 const squareToPaint: Ref<HTMLElement | null> = ref(null);
@@ -32,9 +32,9 @@ const resetSquare = (id: number) => {
     }
   }
 };
-const drawingStore = useDrawingStore();
-const { gridSize, currentToPaint } = storeToRefs(drawingStore);
-const { resetGrid } = drawingStore;
+const paintStore = usePaintStore();
+const { gridSize, currentToPaint } = storeToRefs(paintStore);
+const { resetGrid } = paintStore;
 </script>
 <template>
   <v-btn @click="resetGrid"> RESET</v-btn>

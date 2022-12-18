@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useDrawingStore } from "@/stores/paintStore";
+import { usePaintStore } from "@/stores/paintStore";
 
-const drawingStore = useDrawingStore();
-const { gridSize } = storeToRefs(drawingStore);
+const paintStore = usePaintStore();
+const { gridSize } = storeToRefs(paintStore);
 </script>
 <template>
   <div>

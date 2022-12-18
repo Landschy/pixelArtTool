@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useDrawingStore } from "@/stores/paintStore";
+import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
 
-const drawingStore = useDrawingStore();
-const { currentAlert } = storeToRefs(drawingStore);
+const paintStore = usePaintStore();
+const { currentAlert } = storeToRefs(paintStore);
 
 const props = defineProps<{
   error: string;

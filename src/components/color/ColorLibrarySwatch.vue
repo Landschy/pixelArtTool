@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useDrawingStore } from "../../stores/paintStore";
+import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 import ColorItem from "./ColorItem.vue";
 
-const drawingStore = useDrawingStore();
-const { colorsLibrary, currentBrush } = storeToRefs(drawingStore);
-const changeColor = drawingStore.changeColor;
+const paintStore = usePaintStore();
+const { colorsLibrary, currentBrush } = storeToRefs(paintStore);
+const changeColor = paintStore.changeColor;
 </script>
 
 <template>

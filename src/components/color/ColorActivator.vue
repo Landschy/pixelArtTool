@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useDrawingStore } from "../../stores/paintStore";
+import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 
-const drawingStore = useDrawingStore();
-const { currentBrush, isToAdd } = storeToRefs(drawingStore);
-const addtoLibrary = drawingStore.addtoLibrary;
+const paintStore = usePaintStore();
+const { currentBrush, isToAdd } = storeToRefs(paintStore);
+const addtoLibrary = paintStore.addtoLibrary;
 </script>
 
 <template>

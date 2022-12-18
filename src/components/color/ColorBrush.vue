@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useDrawingStore } from "@/stores/paintStore";
+import { usePaintStore } from "@/stores/paintStore";
 import ToolSelect from "../tools/ToolSelect.vue";
 
-const drawingStore = useDrawingStore();
-const { iconType } = storeToRefs(drawingStore);
+const paintStore = usePaintStore();
+const { iconType } = storeToRefs(paintStore);
 </script>
 <template>
   <div>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { useDrawingStore } from "@/stores/paintStore";
+import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
 import GridDisplay from "@/components/canvas/GridDisplay.vue";
 
-const drawingStore = useDrawingStore();
+const paintStore = usePaintStore();
 const toScreenShot: any = ref(null);
-const { canvasRef } = storeToRefs(drawingStore);
+const { canvasRef } = storeToRefs(paintStore);
 onMounted(() => {
   canvasRef.value = toScreenShot.value;
 });
