@@ -4,11 +4,12 @@ import { storeToRefs } from "pinia";
 
 const paintStore = usePaintStore();
 const { gridSize, currentToPaint } = storeToRefs(paintStore);
-const { resetGrid, highlightSquare, paintSquare, resetSquare } = paintStore;
+const { highlightSquare, paintSquare, resetSquare } = paintStore;
 </script>
 <template>
-  <v-btn @click="resetGrid"> RESET</v-btn>
-  <div class="gridMain w-full h-full mx-auto border-2 border-black">
+  <div
+    class="gridMain w-full h-full mx-auto my-auto border-2 border-black hover:cursor-pointer"
+  >
     <div
       class="border-[1px]"
       v-for="i in gridSize * gridSize"

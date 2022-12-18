@@ -17,6 +17,7 @@ export const usePaintStore = defineStore("Drawing", () => {
     color: 0,
     toAdd: "#000000",
   });
+  const isMenuVisible = ref(false);
   const iconType = ref({
     brush: "mdi-brush",
     fill: "mdi-format-color-fill",
@@ -69,5 +70,6 @@ export const usePaintStore = defineStore("Drawing", () => {
     highlightSquare,
     paintSquare,
     resetSquare,
+    isMenuVisible,
   };
 });

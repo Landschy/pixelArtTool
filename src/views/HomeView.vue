@@ -14,7 +14,7 @@ onMounted(() => {
 <template>
   <main>
     <div
-      class="max-w-[90vw] mx-auto max-h-[90vw] w-[30rem] h-[30rem] 2xl:w-[50rem] 2xl:h-[50rem] text-center"
+      class="max-w-[90vw] mx-auto max-h-[90vw] w-[30rem] h-[30rem] 2xl:w-[45rem] 2xl:h-[45rem] text-center"
     >
       <div ref="toScreenShot" class="w-full h-full">
         <GridDisplay />

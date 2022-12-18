@@ -9,7 +9,7 @@ import AlertDefaultVue from "./components/alerts/AlertDefault.vue";
 <template>
   <v-app>
     <Menu />
-    <v-main class="px-1 md:px-8 py-5 align-center w-full">
+    <v-main class="px-1 md:px-8 py-5 align-center w-full grid">
       <Header />
       <AlertDefaultVue :error="'duplicated'"></AlertDefaultVue>
       <RouterView />
