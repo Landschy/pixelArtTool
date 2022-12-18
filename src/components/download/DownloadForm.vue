@@ -7,14 +7,13 @@ interface downloadFormat {
 }
 const imagetypes = ["jpg", "png", "svg"];
 
-const paintStore = usePaintStore();
-const renderToImage = paintStore.renderToImage;
-
 const imageDownload = ref({ name: "", format: "jpg" });
 const isAbleTodownload = ref(false);
 const rules = {
   required: (v: any) => !!v || "Field required",
 };
+const paintStore = usePaintStore();
+const renderToImage = paintStore.renderToImage;
 </script>
 
 <template>

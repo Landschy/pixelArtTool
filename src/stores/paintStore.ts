@@ -44,8 +44,14 @@ export const usePaintStore = defineStore("Drawing", () => {
     });
     if (!present) {
       colorsLibrary.value.push(c);
+      throwAlert("created", "New Color Added!", "#52BE49", "mdi-check");
     } else {
-      throwAlert("duplicated");
+      throwAlert(
+        "duplicated",
+        "Color already in Library!",
+        "#AE2600",
+        "mdi-alert"
+      );
     }
   };
   const currentToPaint = computed(() => {

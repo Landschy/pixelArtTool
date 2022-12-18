@@ -1,11 +1,17 @@
 import { ref } from "vue";
 
-export const currentAlert = ref({ name: "empty" });
+const emptyAlert = { name: "", text: "", color: "", icon: "" };
+export const currentAlert = ref(emptyAlert);
 const resetAlert = () => {
-  currentAlert.value.name = "empty";
+  currentAlert.value = emptyAlert;
 };
-export const throwAlert = (msg: string) => {
-  currentAlert.value.name = msg;
+export const throwAlert = (
+  name: string,
+  text: string,
+  color: string,
+  icon: string
+) => {
+  currentAlert.value = { name, text, color, icon };
   setTimeout(() => {
     resetAlert();
   }, 2000);
