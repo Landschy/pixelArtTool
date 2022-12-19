@@ -14,7 +14,7 @@ console.log(color.value);
 <template>
   <div
     v-if="currentAlert.name != ''"
-    class="alertColor absolute top-0 right-0 text-white grid grid-cols-2 transition-1 rounded-sm w-full sm:w-[300px] z-[1050] h-[100px] drop-shadow-lg align-middle py-3 px-5"
+    class="alertColor absolute top-0 right-0 text-white grid grid-cols-2 transition-1 rounded-sm w-full sm:w-[400px] z-[1050] h-[100px] drop-shadow-lg align-middle py-3 px-5"
   >
     <slot name="code">
       <div class="text-sm">

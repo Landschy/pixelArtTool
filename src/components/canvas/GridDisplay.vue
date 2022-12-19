@@ -8,11 +8,11 @@ const { highlightSquare, paintSquare, resetSquare } = paintStore;
 </script>
 <template>
   <div
-    class="gridMain w-full h-full mx-auto my-auto border-2 border-black hover:cursor-pointer bg-white"
+    class="gridMain w-full h-full mx-auto my-auto hover:cursor-pointer bg-white"
   >
     <div
-      class="border-[1px]"
       v-for="i in gridSize * gridSize"
+      class="border-[1px]"
       :key="i"
       :id="`gridElement${i}`"
       @mouseover="() => highlightSquare(i)"

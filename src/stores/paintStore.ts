@@ -10,29 +10,26 @@ import {
   paintSquare,
   resetSquare,
 } from "./methods/canvasMethods";
+
+import type { Color } from "csstype";
 export const usePaintStore = defineStore("Drawing", () => {
   const gridSize = ref(8);
   const currentBrush = ref({
     type: "brush",
     color: 0,
-    toAdd: "#486a94",
+    toAdd: "#465184",
   });
   const isMenuVisible = ref(false);
   const iconType = ref({
     brush: "mdi-brush",
     fill: "mdi-format-color-fill",
   });
-  const colorsLibrary: Ref<string[]> = ref([
+  const colorsLibrary: Ref<Color[]> = ref([
     "#464646",
-    "#68e895",
-    "#a168d9",
-    "#a9a9a9",
-    "#1f98a5",
-    "#f5a6f5",
-    "#896584",
-    "#229945",
-    "#a6f9d5",
-    "#f8f865",
+    "#168725",
+    "#ff6585",
+    "#fa6518",
+    "#aaf165",
   ]);
   const changeColor = (c: number) => {
     currentBrush.value.color = c;
