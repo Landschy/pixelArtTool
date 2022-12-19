@@ -3,8 +3,8 @@ import { ref } from "vue";
 
 export const canvasRef: any = ref("");
 
-export const renderToImage = (name: string, type: "jpg" | "png" | "svg") => {
-  let toDownload: Promise<string>;
+export const renderToImage = (name: string, type: string) => {
+  let toDownload: Promise<string> = new Promise(() => "");
   const el = canvasRef;
   const actualEl = el.value;
   switch (type) {
@@ -22,14 +22,10 @@ export const renderToImage = (name: string, type: "jpg" | "png" | "svg") => {
       toDownload = domtoimage.toSvg(actualEl);
       break;
   }
-  toDownload
-    .then((dataUrl) => {
-      const link = document.createElement("a");
-      link.download = name;
-      link.href = dataUrl;
-      link.click();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  toDownload.then((dataUrl) => {
+    const link = document.createElement("a");
+    link.download = name;
+    link.href = dataUrl;
+    link.click();
+  });
 };

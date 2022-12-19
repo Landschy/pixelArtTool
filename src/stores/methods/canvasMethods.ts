@@ -29,7 +29,7 @@ export const highlightSquare = (id: number) => {
     if (checkPainted(el)) {
       squareToPaint.value.style.opacity = "0.5";
     } else {
-      squareToPaint.value.style.backgroundColor = "#464646";
+      squareToPaint.value.style.backgroundColor = "#aaaaaa";
     }
   }
 };

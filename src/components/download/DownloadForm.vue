@@ -2,9 +2,6 @@
 import { ref } from "vue";
 import { usePaintStore } from "@/stores/paintStore";
 
-interface downloadFormat {
-  value: "jpg" | "png" | "svg";
-}
 const imagetypes = ["jpg", "png", "svg"];
 
 const imageDownload = ref({ name: "", format: "jpg" });
@@ -38,7 +35,7 @@ const renderToImage = paintStore.renderToImage;
       :disabled="!isAbleTodownload"
       :color="isAbleTodownload ? 'warning' : ''"
       :append-icon="'mdi-heart'"
-      @click="() => renderToImage(imageDownload.name, imageDownload.format as downloadFormat['value'])"
+      @click="() => renderToImage(imageDownload.name, imageDownload.format)"
     >
       Download Art
     </v-btn>

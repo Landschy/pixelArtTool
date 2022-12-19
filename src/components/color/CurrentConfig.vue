@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
-import ColorItem from "./ColorItem.vue";
 import ColorLibrary from "./ColorLibrary.vue";
 
 const paintStore = usePaintStore();
-const { currentToPaint, currentBrush, isMenuVisible, currentDrawer } =
-  storeToRefs(paintStore);
+const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
 const handeOnButtonSettings = () => {
   isMenuVisible.value = true;
   currentDrawer.value = [0, 1];

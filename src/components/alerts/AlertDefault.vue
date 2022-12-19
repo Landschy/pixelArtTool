@@ -8,7 +8,6 @@ const { currentAlert } = storeToRefs(paintStore);
 const color = computed(() => {
   return currentAlert.value.color;
 });
-console.log(color.value);
 </script>
 
 <template>

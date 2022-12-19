@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Paint from "../views/Paint.vue";
+import PaintPage from "../views/PaintPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: Paint,
+      component: PaintPage,
     },
   ],
 });

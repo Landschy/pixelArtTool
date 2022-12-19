@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
 
 import GridReset from "../canvas/GridReset.vue";
 import GridSliderSelect from "../canvas/GridSliderSelect.vue";
