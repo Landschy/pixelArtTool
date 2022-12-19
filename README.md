@@ -1,5 +1,9 @@
 # Pixel Art - Tool
 
+### Hosted on Vercel's:
+
+[Pixel Art Tool - Jorge Flores](https://pixel-art-tool-jorge-flores.vercel.app/)
+
 ## Used technologies / Frameworks
 
 As talked with Alex during our call, the project uses:
@@ -68,6 +72,6 @@ $ npm run dev
 
 ```
 
-visible also on Vercel's:
+## Visible on Vercel's:
 
-[link](link)
+[Pixel Art Tool - Jorge Flores](https://pixel-art-tool-jorge-flores.vercel.app/)
