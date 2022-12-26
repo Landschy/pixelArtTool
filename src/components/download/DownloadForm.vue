@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { usePaintStore } from "@/stores/paintStore";
+import { useRenderToImageStore } from "@/stores/renderToImageStore";
 
 const imagetypes = ["jpg", "png", "svg"];
 
@@ -9,8 +9,8 @@ const isAbleTodownload = ref(false);
 const rules = {
   required: (v: any) => !!v || "Field required",
 };
-const paintStore = usePaintStore();
-const renderToImage = paintStore.renderToImage;
+const useRenderToImage = useRenderToImageStore();
+const renderToImage = useRenderToImage.renderToImage;
 </script>
 
 <template>

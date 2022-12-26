@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { usePaintStore } from "@/stores/paintStore";
+import { useRenderToImageStore } from "@/stores/renderToImageStore";
 import { storeToRefs } from "pinia";
 import GridDisplay from "@/components/canvas/GridDisplay.vue";
 import CurrentConfig from "@/components/color/CurrentConfig.vue";
 
 const paintStore = usePaintStore();
+const renderStore = useRenderToImageStore();
 const toScreenShot: any = ref(null);
-const { canvasRef, currentDrawer, isMenuVisible } = storeToRefs(paintStore);
+const { currentDrawer, isMenuVisible } = storeToRefs(paintStore);
+const { canvasRef } = storeToRefs(renderStore);
 const handleOnButtonDownload = () => {
   currentDrawer.value = [2];
   isMenuVisible.value = true;

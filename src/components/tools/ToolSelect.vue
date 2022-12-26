@@ -6,7 +6,7 @@ const { currentBrush } = storeToRefs(paintStore);
 
 const props = defineProps<{
   icon: string;
-  val: "brush" | "fill";
+  val: "brush" | "fill" | "eraser";
 }>();
 </script>
 <template>

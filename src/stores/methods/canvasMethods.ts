@@ -9,7 +9,7 @@ const paintClass = (el: HTMLElement, color: Color) => {
   el.classList.add("painted");
   el.style.backgroundColor = color;
 };
-const unPaintClass = (el: HTMLElement) => {
+export const unPaintClass = (el: HTMLElement) => {
   el.classList.remove("painted");
   el.style.backgroundColor = "#ffffff";
 };
@@ -22,14 +22,28 @@ const getGridElement = (id: number) => {
   return el;
 };
 
-export const highlightSquare = (id: number) => {
+let mouseState = 0;
+export const highlightSquare = (id: number, color: Color) => {
   const el = getGridElement(id);
   if (el) {
+    onmousedown = () => {
+      mouseState++;
+    };
+    onmouseup = () => {
+      mouseState--;
+    };
+    document.ontouchstart = () => {
+      mouseState++;
+    };
     squareToPaint.value = el;
-    if (checkPainted(el)) {
-      squareToPaint.value.style.opacity = "0.5";
+    if (mouseState === 0) {
+      if (checkPainted(el)) {
+        squareToPaint.value.style.opacity = "0.5";
+      } else {
+        squareToPaint.value.style.backgroundColor = color;
+      }
     } else {
-      squareToPaint.value.style.backgroundColor = "#aaaaaa";
+      paintSquare(id, color);
     }
   }
 };
@@ -37,25 +51,18 @@ export const highlightSquare = (id: number) => {
 export const paintSquare = (id: number, color: Color) => {
   const el = getGridElement(id);
   if (el) {
-    const isPainted = checkPainted(el);
     const currentColor = el.style.backgroundColor;
     const isNewColor = toHex(currentColor) != color;
-    if (isPainted) {
-      if (isNewColor) {
-        paintClass(el, color);
-      } else {
-        unPaintClass(el);
-      }
-    } else {
-      paintClass(el, color);
-    }
+    const isPainted = checkPainted(el);
+    paintClass(el, color);
   }
 };
 
 export const resetSquare = () => {
   const elToReset = squareToPaint.value;
   if (elToReset) {
-    if (checkPainted(elToReset)) {
+    const isPainted = checkPainted(elToReset);
+    if (isPainted) {
       elToReset.style.opacity = "1";
     } else {
       elToReset.style.backgroundColor = "#ffffff";

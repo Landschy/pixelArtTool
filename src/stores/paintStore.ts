@@ -2,7 +2,6 @@ import type { Ref } from "vue";
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { resetGrid } from "./methods/paintMethods";
-import { canvasRef, renderToImage } from "./methods/renderToImage";
 import { currentAlert, throwAlert } from "./methods/alertMethods";
 import {
   squareToPaint,
@@ -19,10 +18,12 @@ export const usePaintStore = defineStore("Drawing", () => {
     color: 0,
     toAdd: "#465184",
   });
+  const isBeingHold = ref(false);
   const isMenuVisible = ref(false);
   const iconType = ref({
     brush: "mdi-brush",
     fill: "mdi-format-color-fill",
+    eraser: "mdi-eraser",
   });
   const colorsLibrary: Ref<Color[]> = ref([
     "#464646",
@@ -67,8 +68,6 @@ export const usePaintStore = defineStore("Drawing", () => {
     currentAlert,
     throwAlert,
     gridSize,
-    canvasRef,
-    renderToImage,
     resetGrid,
     squareToPaint,
     highlightSquare,
@@ -76,5 +75,6 @@ export const usePaintStore = defineStore("Drawing", () => {
     resetSquare,
     isMenuVisible,
     currentDrawer,
+    isBeingHold,
   };
 });

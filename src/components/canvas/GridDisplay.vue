@@ -3,7 +3,7 @@ import { usePaintStore } from "../../stores/paintStore";
 import { storeToRefs } from "pinia";
 
 const paintStore = usePaintStore();
-const { gridSize, currentToPaint } = storeToRefs(paintStore);
+const { gridSize, currentToPaint, isBeingHold } = storeToRefs(paintStore);
 const { highlightSquare, paintSquare, resetSquare } = paintStore;
 </script>
 <template>
@@ -15,9 +15,9 @@ const { highlightSquare, paintSquare, resetSquare } = paintStore;
       class="border-[1px]"
       :key="i"
       :id="`gridElement${i}`"
-      @mouseover="() => highlightSquare(i)"
-      @mouseleave="resetSquare"
       @click="() => paintSquare(i, currentToPaint)"
+      @mouseover="() => highlightSquare(i, currentToPaint)"
+      @mouseleave="resetSquare"
     ></div>
   </div>
 </template>

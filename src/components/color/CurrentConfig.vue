@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
+import ColorBrush from "./ColorBrush.vue";
 import ColorLibrary from "./ColorLibrary.vue";
 
 const paintStore = usePaintStore();
@@ -22,6 +23,8 @@ const handeOnButtonSettings = () => {
         <h3 class="mb-1 text-grey text-lg">Colors</h3>
         <div class="mb-5 pa-0 text-left">
           <ColorLibrary class="my-2" />
+          <v-divider></v-divider>
+          <ColorBrush />
           <v-divider></v-divider>
         </div>
       </div>
