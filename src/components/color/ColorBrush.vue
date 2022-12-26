@@ -7,9 +7,8 @@ const paintStore = usePaintStore();
 const { iconType } = storeToRefs(paintStore);
 </script>
 <template>
-  <div>
+  <div class="py-2">
     <ToolSelect :icon="iconType.eraser" val="eraser" />
     <ToolSelect :icon="iconType.brush" val="brush" />
-    <ToolSelect :icon="iconType.fill" val="fill" />
   </div>
 </template>

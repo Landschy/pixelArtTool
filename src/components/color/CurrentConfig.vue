@@ -3,6 +3,7 @@ import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
 import ColorBrush from "./ColorBrush.vue";
 import ColorLibrary from "./ColorLibrary.vue";
+import MarioPreset from "../presets/MarioPreset.vue";
 
 const paintStore = usePaintStore();
 const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
@@ -27,6 +28,8 @@ const handeOnButtonSettings = () => {
           <ColorBrush />
           <v-divider></v-divider>
         </div>
+        <h3 class="mb-1 text-grey text-lg">Try the presets</h3>
+        <MarioPreset />
       </div>
     </div>
 

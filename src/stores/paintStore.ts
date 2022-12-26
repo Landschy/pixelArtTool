@@ -3,12 +3,6 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { resetGrid } from "./methods/paintMethods";
 import { currentAlert, throwAlert } from "./methods/alertMethods";
-import {
-  squareToPaint,
-  highlightSquare,
-  paintSquare,
-  resetSquare,
-} from "./methods/canvasMethods";
 
 import type { Color } from "csstype";
 export const usePaintStore = defineStore("Drawing", () => {
@@ -69,10 +63,6 @@ export const usePaintStore = defineStore("Drawing", () => {
     throwAlert,
     gridSize,
     resetGrid,
-    squareToPaint,
-    highlightSquare,
-    paintSquare,
-    resetSquare,
     isMenuVisible,
     currentDrawer,
     isBeingHold,

@@ -23,7 +23,7 @@ const getGridElement = (id: number) => {
 };
 
 let mouseState = 0;
-export const highlightSquare = (id: number, color: Color) => {
+export const highlightSquare = (id: number, color: Color, brush: string) => {
   const el = getGridElement(id);
   if (el) {
     onmousedown = () => {
@@ -32,18 +32,26 @@ export const highlightSquare = (id: number, color: Color) => {
     onmouseup = () => {
       mouseState--;
     };
-    document.ontouchstart = () => {
-      mouseState++;
-    };
     squareToPaint.value = el;
-    if (mouseState === 0) {
-      if (checkPainted(el)) {
-        squareToPaint.value.style.opacity = "0.5";
-      } else {
-        squareToPaint.value.style.backgroundColor = color;
-      }
-    } else {
-      paintSquare(id, color);
+    switch (brush) {
+      case "brush":
+        if (mouseState === 0) {
+          if (checkPainted(el)) {
+            squareToPaint.value.style.opacity = "0.5";
+          } else {
+            squareToPaint.value.style.backgroundColor = color;
+          }
+        } else {
+          paintSquare(id, color);
+        }
+        break;
+      case "fill":
+        break;
+      case "eraser":
+        if (mouseState != 0) {
+          unPaintClass(el);
+        }
+        break;
     }
   }
 };

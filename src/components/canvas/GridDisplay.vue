@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { usePaintStore } from "../../stores/paintStore";
+import {
+  highlightSquare,
+  paintSquare,
+  resetSquare,
+} from "../../stores/methods/canvasMethods";
 import { storeToRefs } from "pinia";
 
 const paintStore = usePaintStore();
-const { gridSize, currentToPaint, isBeingHold } = storeToRefs(paintStore);
-const { highlightSquare, paintSquare, resetSquare } = paintStore;
+const { gridSize, currentToPaint, currentBrush } = storeToRefs(paintStore);
 </script>
 <template>
   <div
@@ -16,7 +20,7 @@ const { highlightSquare, paintSquare, resetSquare } = paintStore;
       :key="i"
       :id="`gridElement${i}`"
       @click="() => paintSquare(i, currentToPaint)"
-      @mouseover="() => highlightSquare(i, currentToPaint)"
+      @mouseover="() => highlightSquare(i, currentToPaint, currentBrush.type)"
       @mouseleave="resetSquare"
     ></div>
   </div>
