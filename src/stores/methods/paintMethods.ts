@@ -8,10 +8,9 @@ export const resetGrid = () => {
   });
 };
 
-export const fillGrid = (color: Color) => {
-  const grid = document.querySelectorAll<HTMLElement>("[class *= 'painted']");
-  grid.forEach((x) => {
-    x.style.backgroundColor = color;
-    x.classList.remove("painted");
-  });
+export const fillGrid = (el: HTMLElement, color: Color) => {
+  const idStrip = el.id.replace("gridElement", "");
+
+  const grid = document.querySelectorAll<HTMLElement>("[id $= 'gridElement']");
+  grid.forEach((x) => {});
 };

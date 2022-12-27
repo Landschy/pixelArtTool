@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { Mario, drawFigure } from "@/stores/methods/presetsLibrary";
-import { storeToRefs } from "pinia";
-
 import { usePaintStore } from "@/stores/paintStore";
-
+import { Sonic, drawFigure } from "@/stores/methods/presetsLibrary";
+import { storeToRefs } from "pinia";
 const paintStore = usePaintStore();
 const { gridSize } = storeToRefs(paintStore);
-const drawMario = () => {
-  gridSize.value = 22;
-  drawFigure(Mario);
+const drawSonic = () => {
+  gridSize.value = 28;
+  drawFigure(Sonic);
 };
 </script>
 
@@ -16,12 +14,12 @@ const drawMario = () => {
   <div>
     <v-btn
       width="100%"
-      @click="drawMario"
+      @click="drawSonic"
       prepend-icon="mdi-plus"
       variant="elevated"
-      color="red"
+      color="blue"
     >
-      MARIO
+      SONIC
     </v-btn>
   </div>
 </template>

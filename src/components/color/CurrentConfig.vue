@@ -4,6 +4,8 @@ import { storeToRefs } from "pinia";
 import ColorBrush from "./ColorBrush.vue";
 import ColorLibrary from "./ColorLibrary.vue";
 import MarioPreset from "../presets/MarioPreset.vue";
+import SonicPreset from "../presets/SonicPreset.vue";
+import ShadowPreset from "../presets/ShadowPreset.vue";
 
 const paintStore = usePaintStore();
 const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
@@ -25,11 +27,18 @@ const handeOnButtonSettings = () => {
         <div class="mb-5 pa-0 text-left">
           <ColorLibrary class="my-2" />
           <v-divider></v-divider>
+        </div>
+        <h3 class="mb-1 text-grey text-lg">Tools</h3>
+        <div class="mb-5 pa-0 text-left">
           <ColorBrush />
           <v-divider></v-divider>
         </div>
         <h3 class="mb-1 text-grey text-lg">Try the presets</h3>
-        <MarioPreset />
+        <div class="mb-5 pa-0 text-left grid grid-cols-2 gap-6">
+          <MarioPreset />
+          <SonicPreset />
+          <ShadowPreset />
+        </div>
       </div>
     </div>
 

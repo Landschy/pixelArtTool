@@ -13,13 +13,14 @@ const { gridSize, currentToPaint, currentBrush } = storeToRefs(paintStore);
 <template>
   <div
     class="gridMain w-full h-full mx-auto my-auto hover:cursor-pointer bg-white"
+    :style="{ cursor: `url(${currentBrush.type}.svg), auto` }"
   >
     <div
       v-for="i in gridSize * gridSize"
       class="border-[1px]"
       :key="i"
       :id="`gridElement${i}`"
-      @click="() => paintSquare(i, currentToPaint)"
+      @click="() => paintSquare(i, currentToPaint, currentBrush.type)"
       @mouseover="() => highlightSquare(i, currentToPaint, currentBrush.type)"
       @mouseleave="resetSquare"
     ></div>

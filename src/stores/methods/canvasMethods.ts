@@ -1,7 +1,7 @@
 import type { Color } from "csstype";
 import type { Ref } from "vue";
-import { ref } from "vue";
-import { toHex } from "./toHex";
+import { ref, nextTick } from "vue";
+import { fillGrid } from "./paintMethods";
 
 export const squareToPaint: Ref<HTMLElement | null> = ref(null);
 
@@ -25,13 +25,13 @@ const getGridElement = (id: number) => {
 let mouseState = 0;
 export const highlightSquare = (id: number, color: Color, brush: string) => {
   const el = getGridElement(id);
+  onmousedown = () => {
+    mouseState++;
+  };
+  onmouseup = () => {
+    mouseState--;
+  };
   if (el) {
-    onmousedown = () => {
-      mouseState++;
-    };
-    onmouseup = () => {
-      mouseState--;
-    };
     squareToPaint.value = el;
     switch (brush) {
       case "brush":
@@ -42,10 +42,8 @@ export const highlightSquare = (id: number, color: Color, brush: string) => {
             squareToPaint.value.style.backgroundColor = color;
           }
         } else {
-          paintSquare(id, color);
+          paintSquare(id, color, brush);
         }
-        break;
-      case "fill":
         break;
       case "eraser":
         if (mouseState != 0) {
@@ -56,13 +54,29 @@ export const highlightSquare = (id: number, color: Color, brush: string) => {
   }
 };
 
-export const paintSquare = (id: number, color: Color) => {
+export const paintSquare = (
+  id: number,
+  color: Color,
+  brush: string = "brush"
+) => {
   const el = getGridElement(id);
   if (el) {
-    const currentColor = el.style.backgroundColor;
-    const isNewColor = toHex(currentColor) != color;
-    const isPainted = checkPainted(el);
-    paintClass(el, color);
+    switch (brush) {
+      case "brush":
+        paintClass(el, color);
+        break;
+      case "fill":
+        fillGrid(el, color);
+        break;
+      case "eraser":
+        unPaintClass(el);
+        break;
+    }
+  }
+};
+export const rangePaint = (start: number, size: number, color: Color) => {
+  for (let i = 0; i <= size; i++) {
+    paintSquare(start + i, color);
   }
 };
 
