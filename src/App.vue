@@ -4,8 +4,6 @@ import Header from "./components/main/HeaderDumb.vue";
 import Footer from "./components/main/FooterDumb.vue";
 import Menu from "./components/main/MenuSmart.vue";
 import AlertDefault from "./components/alerts/AlertDefault.vue";
-
-const test = "mdi-brush";
 </script>
 
 <template>

@@ -13,7 +13,7 @@ export const resetGrid = () => {
 
 const reshape = (array: HTMLElement[], size: number) => {
   const tmp = [];
-  for (var i = 0; i < array.length; i += size) {
+  for (let i = 0; i < array.length; i += size) {
     tmp.push(array.slice(i, i + size));
   }
   return tmp;

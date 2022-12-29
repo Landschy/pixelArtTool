@@ -1,11 +1,11 @@
-import { expect, vi, beforeEach } from "vitest";
+import { expect, beforeEach } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { usePaintStore } from "@/stores/paintStore";
 import { storeToRefs } from "pinia";
 import { describe, it } from "vitest";
 
 describe("Main Funcionality", () => {
-  beforeEach((context) => {
+  beforeEach(() => {
     setActivePinia(createPinia());
   });
   it("Changes Color", () => {
