@@ -9,5 +9,7 @@ export const toHex = (col: string) => {
     b = b.length == 1 ? "0" + b : b;
     const colHex = "#" + r + g + b;
     return colHex;
+  } else {
+    return col;
   }
 };

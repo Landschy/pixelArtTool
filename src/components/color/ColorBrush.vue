@@ -10,6 +10,6 @@ const { iconType } = storeToRefs(paintStore);
   <div class="py-2">
     <ToolSelect :icon="iconType.eraser" val="eraser" />
     <ToolSelect :icon="iconType.brush" val="brush" />
-    <!-- <ToolSelect :icon="iconType.fill" val="fill" /> -->
+    <ToolSelect :icon="iconType.fill" val="fill" />
   </div>
 </template>

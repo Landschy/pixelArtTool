@@ -33,7 +33,7 @@ const handeOnButtonSettings = () => {
           <ColorBrush />
           <v-divider></v-divider>
         </div>
-        <h3 class="mb-1 text-grey text-lg">Try the presets</h3>
+        <h3 class="mb-1 text-grey text-lg">Try my presets</h3>
         <div class="mb-5 pa-0 text-left grid grid-cols-2 gap-6">
           <MarioPreset />
           <SonicPreset />

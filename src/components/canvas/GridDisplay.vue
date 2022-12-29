@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { usePaintStore } from "../../stores/paintStore";
 import {
   highlightSquare,
@@ -6,9 +7,13 @@ import {
   resetSquare,
 } from "../../stores/methods/canvasMethods";
 import { storeToRefs } from "pinia";
+import { resetGrid } from "@/stores/methods/paintMethods";
 
 const paintStore = usePaintStore();
 const { gridSize, currentToPaint, currentBrush } = storeToRefs(paintStore);
+onMounted(() => {
+  resetGrid();
+});
 </script>
 <template>
   <div
@@ -20,7 +25,7 @@ const { gridSize, currentToPaint, currentBrush } = storeToRefs(paintStore);
       class="border-[1px]"
       :key="i"
       :id="`gridElement${i}`"
-      @click="() => paintSquare(i, currentToPaint, currentBrush.type)"
+      @click="() => paintSquare(i, currentToPaint, currentBrush.type, gridSize)"
       @mouseover="() => highlightSquare(i, currentToPaint, currentBrush.type)"
       @mouseleave="resetSquare"
     ></div>

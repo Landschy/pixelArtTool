@@ -1,6 +1,6 @@
 import type { Color } from "csstype";
 import type { Ref } from "vue";
-import { ref, nextTick } from "vue";
+import { ref } from "vue";
 import { fillGrid } from "./paintMethods";
 
 export const squareToPaint: Ref<HTMLElement | null> = ref(null);
@@ -22,6 +22,16 @@ const getGridElement = (id: number) => {
   return el;
 };
 
+const paintHighlight = (el: HTMLElement, color: Color) => {
+  if (el) {
+    squareToPaint.value = el;
+    if (checkPainted(el)) {
+      squareToPaint.value.style.opacity = "0.5";
+    } else {
+      squareToPaint.value.style.backgroundColor = color;
+    }
+  }
+};
 let mouseState = 0;
 export const highlightSquare = (id: number, color: Color, brush: string) => {
   const el = getGridElement(id);
@@ -33,31 +43,33 @@ export const highlightSquare = (id: number, color: Color, brush: string) => {
   };
   if (el) {
     squareToPaint.value = el;
+
     switch (brush) {
       case "brush":
-        if (mouseState === 0) {
-          if (checkPainted(el)) {
-            squareToPaint.value.style.opacity = "0.5";
-          } else {
-            squareToPaint.value.style.backgroundColor = color;
-          }
-        } else {
+        if (mouseState != 0) {
           paintSquare(id, color, brush);
+        } else {
+          paintHighlight(el, color);
         }
         break;
       case "eraser":
         if (mouseState != 0) {
           unPaintClass(el);
+        } else {
+          paintHighlight(el, "#ffffff");
         }
         break;
     }
+  } else {
+    return;
   }
 };
 
 export const paintSquare = (
   id: number,
   color: Color,
-  brush: string = "brush"
+  brush: string = "brush",
+  size?: number
 ) => {
   const el = getGridElement(id);
   if (el) {
@@ -66,7 +78,7 @@ export const paintSquare = (
         paintClass(el, color);
         break;
       case "fill":
-        fillGrid(el, color);
+        fillGrid(el, color, size ? size : 8);
         break;
       case "eraser":
         unPaintClass(el);

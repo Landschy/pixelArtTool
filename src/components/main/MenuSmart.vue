@@ -10,6 +10,9 @@ import ColorLibrary from "../color/ColorLibrary.vue";
 import ColorLibrarySwatch from "../color/ColorLibrarySwatch.vue";
 import ColorPicker from "../color/ColorPicker.vue";
 import DownloadForm from "../download/DownloadForm.vue";
+import MarioPreset from "../presets/MarioPreset.vue";
+import ShadowPreset from "../presets/ShadowPreset.vue";
+import SonicPreset from "../presets/SonicPreset.vue";
 import TitleSoftware from "./TitleSoftware.vue";
 
 const paintStore = usePaintStore();
@@ -73,6 +76,16 @@ const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
           <template #title> Download </template>
           <template #text>
             <DownloadForm />
+          </template>
+        </v-expansion-panel>
+        <v-expansion-panel elevation="0">
+          <template #title> Presets </template>
+          <template #text>
+            <div class="grid grid-cols-2 gap-6">
+              <MarioPreset />
+              <SonicPreset />
+              <ShadowPreset />
+            </div>
           </template>
         </v-expansion-panel>
       </v-expansion-panels>
