@@ -12,7 +12,7 @@ const toScreenShot: any = ref(null);
 const { currentDrawer, isMenuVisible } = storeToRefs(paintStore);
 const { canvasRef } = storeToRefs(renderStore);
 const handleOnButtonDownload = () => {
-  currentDrawer.value = [2];
+  currentDrawer.value = [1, 3];
   isMenuVisible.value = true;
 };
 onMounted(() => {

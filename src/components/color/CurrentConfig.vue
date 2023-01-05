@@ -8,7 +8,7 @@ const paintStore = usePaintStore();
 const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
 const handeOnButtonSettings = () => {
   isMenuVisible.value = true;
-  currentDrawer.value = [0, 1];
+  currentDrawer.value = [0, 1, 2];
 };
 </script>
 <template>

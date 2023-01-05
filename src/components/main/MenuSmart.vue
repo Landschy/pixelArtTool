@@ -73,12 +73,6 @@ const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
           </template>
         </v-expansion-panel>
         <v-expansion-panel elevation="0">
-          <template #title> Download </template>
-          <template #text>
-            <DownloadForm />
-          </template>
-        </v-expansion-panel>
-        <v-expansion-panel elevation="0">
           <template #title> Presets </template>
           <template #text>
             <div class="grid grid-cols-2 gap-6">
@@ -86,6 +80,12 @@ const { isMenuVisible, currentDrawer } = storeToRefs(paintStore);
               <SonicPreset />
               <ShadowPreset />
             </div>
+          </template>
+        </v-expansion-panel>
+        <v-expansion-panel elevation="0">
+          <template #title> Download </template>
+          <template #text>
+            <DownloadForm />
           </template>
         </v-expansion-panel>
       </v-expansion-panels>

@@ -27,13 +27,12 @@ const get2DGrid = (size: number) => {
 };
 
 const findIndex = (grid: HTMLElement[][], id: string) => {
-  const index = { x: 1, y: 1 };
+  const index = { x: 0, y: 0 };
   grid.map((rows, i) => {
     rows.map((el, j) => {
       if (el.id == id) {
         index.x = j;
         index.y = i;
-        return;
       }
     });
   });
@@ -45,6 +44,10 @@ export const fillGrid = (el: HTMLElement, color: Color, size: number) => {
   grid = get2DGrid(size);
   const index = findIndex(grid, el.id);
   const currentColor = toHex(el.style.backgroundColor);
+
+  console.log("--------------NEWWWW FFFILLLL-------------");
+  console.log("--------------NEWWWW FFFILLLL-------------");
+  console.log("--------------NEWWWW FFFILLLL-------------");
   floodFill(index, size, currentColor, color);
 };
 
@@ -61,17 +64,17 @@ const floodFill = (
     return;
   }
 
-  const presentColor = toHex(grid[index.x][index.y].style.backgroundColor);
-  if (presentColor != currentColor) {
-    return;
-  }
+  const presentColor = toHex(grid[index.y][index.x].style.backgroundColor);
   if (presentColor == newColor) {
     return;
   }
-  if (presentColor == currentColor) {
-    grid[index.x][index.y].style.backgroundColor = newColor;
-    grid[index.x][index.y].classList.add("painted");
+  if (presentColor != currentColor) {
+    return;
   }
+
+  grid[index.y][index.x].style.backgroundColor = newColor;
+  grid[index.y][index.x].classList.add("painted");
+
   floodFill({ ...index, x: index.x - 1 }, size, currentColor, newColor);
   floodFill({ ...index, x: index.x + 1 }, size, currentColor, newColor);
   floodFill({ ...index, y: index.y - 1 }, size, currentColor, newColor);
