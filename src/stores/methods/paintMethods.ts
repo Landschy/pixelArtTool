@@ -44,10 +44,6 @@ export const fillGrid = (el: HTMLElement, color: Color, size: number) => {
   grid = get2DGrid(size);
   const index = findIndex(grid, el.id);
   const currentColor = toHex(el.style.backgroundColor);
-
-  console.log("--------------NEWWWW FFFILLLL-------------");
-  console.log("--------------NEWWWW FFFILLLL-------------");
-  console.log("--------------NEWWWW FFFILLLL-------------");
   floodFill(index, size, currentColor, color);
 };
 
@@ -65,22 +61,25 @@ const floodFill = (
   }
 
   const presentColor = toHex(grid[index.y][index.x].style.backgroundColor);
-  if (presentColor == newColor) {
-    return;
-  }
-  if (presentColor != currentColor) {
+  if (presentColor == newColor || presentColor != currentColor) {
     return;
   }
 
   grid[index.y][index.x].style.backgroundColor = newColor;
   grid[index.y][index.x].classList.add("painted");
 
-  floodFill({ ...index, x: index.x - 1 }, size, currentColor, newColor);
-  floodFill({ ...index, x: index.x + 1 }, size, currentColor, newColor);
-  floodFill({ ...index, y: index.y - 1 }, size, currentColor, newColor);
-  floodFill({ ...index, y: index.y + 1 }, size, currentColor, newColor);
-  floodFill({ x: index.x - 1, y: index.y - 1 }, size, currentColor, newColor);
-  floodFill({ x: index.x - 1, y: index.y + 1 }, size, currentColor, newColor);
-  floodFill({ x: index.x + 1, y: index.y - 1 }, size, currentColor, newColor);
-  floodFill({ x: index.x + 1, y: index.y + 1 }, size, currentColor, newColor);
+  const offsets = [-1, 0, 1];
+  for (const xOffsets of offsets) {
+    for (const yOffsets of offsets) {
+      if (xOffsets === 0 && yOffsets === 0) {
+        continue;
+      }
+      floodFill(
+        { x: index.x + xOffsets, y: index.y + yOffsets },
+        size,
+        currentColor,
+        newColor
+      );
+    }
+  }
 };

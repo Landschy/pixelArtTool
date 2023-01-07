@@ -41,6 +41,7 @@ export const highlightSquare = (id: number, color: Color, brush: string) => {
   onmouseup = () => {
     mouseState--;
   };
+  console.log("mouseState", mouseState);
   if (el) {
     squareToPaint.value = el;
 
