@@ -35,34 +35,33 @@ const paintHighlight = (el: HTMLElement, color: Color) => {
 let mouseState = 0;
 export const highlightSquare = (id: number, color: Color, brush: string) => {
   const el = getGridElement(id);
+  if (!el) {
+    return;
+  }
   onmousedown = () => {
     mouseState++;
+    highlightSquare(id, color, brush);
   };
   onmouseup = () => {
     mouseState--;
   };
-  console.log("mouseState", mouseState);
-  if (el) {
-    squareToPaint.value = el;
+  squareToPaint.value = el;
 
-    switch (brush) {
-      case "brush":
-        if (mouseState != 0) {
-          paintSquare(id, color, brush);
-        } else {
-          paintHighlight(el, color);
-        }
-        break;
-      case "eraser":
-        if (mouseState != 0) {
-          unPaintClass(el);
-        } else {
-          paintHighlight(el, "#ffffff");
-        }
-        break;
-    }
-  } else {
-    return;
+  switch (brush) {
+    case "brush":
+      if (mouseState != 0) {
+        paintSquare(id, color, brush);
+      } else {
+        paintHighlight(el, color);
+      }
+      break;
+    case "eraser":
+      if (mouseState != 0) {
+        unPaintClass(el);
+      } else {
+        paintHighlight(el, "#ffffff");
+      }
+      break;
   }
 };
 
