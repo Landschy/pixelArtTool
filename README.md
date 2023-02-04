@@ -2,7 +2,7 @@
 
 ### Hosted on Vercel's:
 
-[Pixel Art Tool - Jorge Flores](https://pixel-art-tool-jorge-flores.vercel.app/)
+[Pixel Art Tool - Jorge Flores](https://pixel-art-tool-jorge-flores.vercel.app/) 2023
 
 ## Used technologies / Frameworks
 
